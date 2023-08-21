@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.1 on darwin)" generated="20230821 09:37:29.816" rpa="false" schemaversion="4">
+<suite id="s1" name="test searchButtonColor" source="/Users/liisikuuskull/Desktop/testing-amazon- website/test_searchButtonColor.robot">
+<kw name="Open Browser" library="SeleniumLibrary" type="SETUP">
+<arg>https://www.amazon.com/</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230821 09:37:29.889" level="INFO">Opening browser 'Chrome' to base url 'https://www.amazon.com/'.</msg>
+<status status="PASS" starttime="20230821 09:37:29.889" endtime="20230821 09:37:34.038"/>
+</kw>
+<test id="s1-t1" name="TestSearchButtonColor" line="20">
+<kw name="Set Variable" library="BuiltIn">
+<var>${search_button_locator}</var>
+<arg>xpath=//input[@id='nav-search-submit-button']</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230821 09:37:34.041" level="INFO">${search_button_locator} = xpath=//input[@id='nav-search-submit-button']</msg>
+<status status="PASS" starttime="20230821 09:37:34.041" endtime="20230821 09:37:34.041"/>
+</kw>
+<kw name="Wait for Element and Extract Background Color">
+<var>${search_button_color}</var>
+<arg>${search_button_locator}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230821 09:37:34.041" endtime="20230821 09:37:34.068"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${color_value}</var>
+<arg>return window.getComputedStyle(arguments[0], null).getPropertyValue("background-color");</arg>
+<arg>${locator}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230821 09:37:34.068" level="INFO">Executing JavaScript:
+return window.getComputedStyle(arguments[0], null).getPropertyValue("background-color");xpath=//input[@id='nav-search-submit-button']
+Without any arguments.</msg>
+<msg timestamp="20230821 09:37:34.592" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-87.png"&gt;&lt;img src="selenium-screenshot-87.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230821 09:37:34.592" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
+  (Session info: chrome=115.0.5790.170)
+Stacktrace:
+0   chromedriver                        0x0000000102426a6c chromedriver + 4303468
+1   chromedriver                        0x000000010241f198 chromedriver + 4272536
+2   chromedriver                        0x0000000102053594 chromedriver + 292244
+3   chromedriver                        0x0000000102057d20 chromedriver + 310560
+4   chromedriver                        0x0000000102059bf8 chromedriver + 318456
+5   chromedriver                        0x00000001020ca01c chromedriver + 778268
+6   chromedriver                        0x00000001020c9628 chromedriver + 775720
+7   chromedriver                        0x0000000102084b40 chromedriver + 494400
+8   chromedriver                        0x0000000102085988 chromedriver + 498056
+9   chromedriver                        0x00000001023e7924 chromedriver + 4045092
+10  chromedriver                        0x00000001023ebe68 chromedriver + 4062824
+11  chromedriver                        0x00000001023f2088 chromedriver + 4087944
+12  chromedriver                        0x00000001023ec96c chromedriver + 4065644
+13  chromedriver                        0x00000001023c4e64 chromedriver + 3903076
+14  chromedriver                        0x000000010240855c chromedriver + 4179292
+15  chromedriver                        0x00000001024086b4 chromedriver + 4179636
+16  chromedriver                        0x0000000102418978 chromedriver + 4245880
+17  libsystem_pthread.dylib             0x0000000188327fa8 _pthread_start + 148
+18  libsystem_pthread.dylib             0x0000000188322da0 thread_start + 8
+</msg>
+<status status="FAIL" starttime="20230821 09:37:34.068" endtime="20230821 09:37:34.596"/>
+</kw>
+<status status="FAIL" starttime="20230821 09:37:34.041" endtime="20230821 09:37:34.596"/>
+</kw>
+<kw name="Validate Color">
+<arg>${search_button_color}</arg>
+<status status="NOT RUN" starttime="20230821 09:37:34.596" endtime="20230821 09:37:34.596"/>
+</kw>
+<status status="FAIL" starttime="20230821 09:37:34.039" endtime="20230821 09:37:34.596">JavascriptException: Message: javascript error: Unexpected token '}'
+  (Session info: chrome=115.0.5790.170)
+Stacktrace:
+0   chromedriver                        0x0000000102426a6c chromedriver + 4303468
+1   chromedriver                        0x000000010241f198 chromedriver + 4272536
+2   chromedriver                        0x0000000102053594 chromedriver + 292244
+3   chromedriver                        0x0000000102057d20 chromedriver + 310560
+4   chromedriver                        0x0000000102059bf8 chromedriver + 318456
+5   chromedriver                        0x00000001020ca01c chromedriver + 778268
+6   chromedriver                        0x00000001020c9628 chromedriver + 775720
+7   chromedriver                        0x0000000102084b40 chromedriver + 494400
+8   chromedriver                        0x0000000102085988 chromedriver + 498056
+9   chromedriver                        0x00000001023e7924 chromedriver + 4045092
+10  chromedriver                        0x00000001023ebe68 chromedriver + 4062824
+11  chromedriver                        0x00000001023f2088 chromedriver + 4087944
+12  chromedriver                        0x00000001023ec96c chromedriver + 4065644
+13  chromedriver                        0x00000001023c4e64 chromedriver + 3903076
+14  chromedriver                        0x000000010240855c chromedriver + 4179292
+15  chromedriver                        0x00000001024086b4 chromedriver + 4179636
+16  chromedriver                        0x0000000102418978 chromedriver + 4245880
+17  libsystem_pthread.dylib             0x0000000188327fa8 _pthread_start + 148
+18  libsystem_pthread.dylib             0x0000000188322da0 thread_start + 8
+</status>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230821 09:37:34.597" endtime="20230821 09:37:34.683"/>
+</kw>
+<doc>Robot Framework script to test the Amazon website</doc>
+<status status="FAIL" starttime="20230821 09:37:29.816" endtime="20230821 09:37:34.683"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="test searchButtonColor">test searchButtonColor</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
